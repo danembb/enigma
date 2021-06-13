@@ -16,13 +16,18 @@ RSpec.describe Key do
 
   describe "methods" do
     it "#generate_key can generate a random sequence of integers" do
-      
+
       expect(@key1.generate_key).to be_an(Integer)
     end
-  #   it "#create_keys can create keys" do
-  #     key = Key.new(01234)
-  #
-  #     expect(key.create_keys).to be_an(Array)
-  #   end
+
+    it "#create_keys can create keys" do
+
+      expect(@key1.create_keys).to be_an(Array)
+    end
+
+    it "#datetime returns the date by month/day/year order" do
+
+      expect(@key1.return_date).to eq(130621)
+    end
   end
 end

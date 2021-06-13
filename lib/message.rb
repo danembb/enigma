@@ -8,6 +8,7 @@ class Message
   end
 
   def welcome_query
-    "I am an encryption program designed to encrypt a 5-integer sequence. Would you like to (e)nter a sequence or have a sequence (g)enerated for you?"
+    "I am an encryption program designed to encrypt text. Would you like to (e)nter a date to influence the process or have a the (m)agic happen by itself?
+    (enter 'e' or 'enter' to enter yourself or 'm' or 'magic' for a randomly generated date"
   end
 end
