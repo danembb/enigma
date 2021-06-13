@@ -25,9 +25,22 @@ RSpec.describe Key do
       expect(@key1.create_keys).to be_an(Array)
     end
 
-    it "#datetime returns the date by month/day/year order" do
+    it "#return_date returns today's date" do
 
-      expect(@key1.return_date).to eq(130621)
+      # expect(@key1.return_date).to eq(130621)
+      expect(@key1.return_date).to be_a(String)
+    end
+
+    it "#date_squared squares #return_date as integer" do
+      return_date = 130621
+
+      expect(@key1.date_squared).to eq(17061845641)
+    end
+
+    it "#last_four_array returns an array containing the last 4 elements of #date_squared" do
+      return_date = 130621
+
+      expect(@key1.last_four_array).to eq(["5", "6", "4", "1"])
     end
   end
 end

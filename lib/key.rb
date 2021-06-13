@@ -24,9 +24,17 @@ class Key
   end
 
   def return_date
-    @date = Date.today.strftime("%d%m%y").to_i
+    Date.today.strftime("%d%m%y")
   end
 
+  def date_squared
+    (return_date.to_i ** 2)
+  end
+
+  def last_four_array
+    squared_as_array = date_squared.to_s.split("")
+    squared_as_array.last(4)
+    end
   # def user_generate(input)
   #   #will need to take 5-digit input and convert to array.
   # input.split("")
