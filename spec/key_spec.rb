@@ -49,6 +49,16 @@ RSpec.describe Key do
       expect(@key1.offsets_as_strings).to eq([["5"], ["6"], ["4"], ["1"]])
     end
 
-    it "#"
+    it "#create_offsets will convert each subarray's string into integers" do
+      return_date = 130621
+
+      expect(@key1.create_offsets).to eq([[5], [6], [4], [1]])
+    end
+
+    it "#merp will transpose the final keys and offsets then sum each index pair" do
+      return_date = 130621
+
+      expect(@key1.merp).to be_an(Integer)
+    end
   end
 end

@@ -43,4 +43,12 @@ class Key
    last_four_array.each_slice(1).to_a
   end
 
+  def create_offsets
+    offsets_as_strings.map do |subarray|
+      subarray.map do |element|
+        element.to_i
+      end
+    end
+  end
+
 end
