@@ -42,5 +42,13 @@ RSpec.describe Key do
 
       expect(@key1.last_four_array).to eq(["5", "6", "4", "1"])
     end
+
+    it "#offsets_as_strings will create an array with 4 subarrays" do
+      return_date = 130621
+
+      expect(@key1.offsets_as_strings).to eq([["5"], ["6"], ["4"], ["1"]])
+    end
+
+    it "#"
   end
 end

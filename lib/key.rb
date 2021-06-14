@@ -38,4 +38,9 @@ class Key
   # def user_generate(input)
   #   #will need to take 5-digit input and convert to array.
   # input.split("")
+
+  def offsets_as_strings
+   last_four_array.each_slice(1).to_a
+  end
+
 end
