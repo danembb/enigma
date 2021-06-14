@@ -20,9 +20,14 @@ RSpec.describe Key do
       expect(@key1.generate_key).to be_an(Integer)
     end
 
-    it "#create_keys can create keys" do
+    it "#key_pairs can create key pairs" do
 
-      expect(@key1.create_keys).to be_an(Array)
+      expect(@key1.key_pairs).to be_an(Array)
+    end
+
+    it "#keys can pull pairs out and combine them into final keys" do
+require "pry"; binding.pry
+      expect(@key1.keys).to be_an(Array)
     end
 
     it "#return_date returns today's date" do
@@ -43,22 +48,22 @@ RSpec.describe Key do
       expect(@key1.last_four_array).to eq(["5", "6", "4", "1"])
     end
 
-    it "#offsets_as_strings will create an array with 4 subarrays" do
+    it "#offsets_as_strings can create an array with 4 subarrays" do
       return_date = 130621
 
       expect(@key1.offsets_as_strings).to eq([["5"], ["6"], ["4"], ["1"]])
     end
 
-    it "#create_offsets will convert each subarray's string into integers" do
+    it "#offsets can convert each subarray's string into integers" do
       return_date = 130621
 
-      expect(@key1.create_offsets).to eq([[5], [6], [4], [1]])
+      expect(@key1.offsets).to eq([[5], [6], [4], [1]])
     end
 
-    it "#merp will transpose the final keys and offsets then sum each index pair" do
-      return_date = 130621
-
-      expect(@key1.merp).to be_an(Integer)
-    end
+    # it "#merp can transpose the final key_pairs and offsets then sum each index pair" do
+    #   return_date = 130621
+    #
+    #   expect(@key1.merp).to be_an(Array)
+    # end
   end
 end

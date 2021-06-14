@@ -7,20 +7,30 @@ class Key
     # @key = key
   end
 
-  #helper method for create_keys
   def generate_key
     number_set = [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0]
     @key_as_array = number_set.sample(5)
     @key_as_array.join("").to_i
   end
 
-  def create_keys
+  def key_pairs
     generate_key
-    final_keys = []
+    final_key_pairs = []
     @key_as_array.each_cons(2) do |number_pair|
-      final_keys << number_pair
+      final_key_pairs << number_pair
     end
-    final_keys
+    final_key_pairs
+  end
+
+  def keys
+    keys_as_strings = []
+    key_pairs.map do |pair|
+      keys_as_strings.push(pair.join)
+    end
+    keys_as_integers = keys_as_strings.map do |element|
+      element.to_i
+    end
+    keys_as_integers
   end
 
   def return_date
@@ -35,15 +45,12 @@ class Key
     squared_as_array = date_squared.to_s.split("")
     squared_as_array.last(4)
     end
-  # def user_generate(input)
-  #   #will need to take 5-digit input and convert to array.
-  # input.split("")
 
   def offsets_as_strings
    last_four_array.each_slice(1).to_a
   end
 
-  def create_offsets
+  def offsets
     offsets_as_strings.map do |subarray|
       subarray.map do |element|
         element.to_i
@@ -51,4 +58,8 @@ class Key
     end
   end
 
+  # def merp
+  #   keys_and_offsets = [keys, offsets]
+  #   keys_and_offsets.transpose
+  # end
 end
