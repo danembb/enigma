@@ -1,12 +1,11 @@
 #could call this shift to possibly better reflect what it will end up doing?
 
 class Key
-  # attr_reader :key
 
-  def initialize#(key)
-    # @key = key
+  def initialize
   end
 
+#JustKeyThings~*~*
   def generate_key
     number_set = [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0]
     @key_as_array = number_set.sample(5)
@@ -33,6 +32,7 @@ class Key
     keys_as_integers
   end
 
+#JustOffsetThings~*~*
   def return_date
     Date.today.strftime("%d%m%y")
   end
@@ -55,7 +55,7 @@ class Key
       subarray.map do |element|
         element.to_i
       end
-    end
+    end.flatten
   end
 
   # def merp
