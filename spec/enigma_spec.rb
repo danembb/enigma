@@ -37,5 +37,13 @@ RSpec.describe Enigma do
       # expect(expected[:key]).to eq("02715")
       # expect(enigma.date).to eq("040895")
     end
+
+    it "#encrypt will return a hash with three keys without a date/key given" do
+      enigma = Enigma.new
+
+      expect(enigma.encrypt("hello world")).to be_a(Hash)
+      # expect(expected[:key]).to eq("02715")
+      # expect(enigma.date).to eq("040895")
+    end
   end
 end
