@@ -14,7 +14,7 @@ class Enigma
     @date = @shift2.return_date
   end
 
-  #keys
+  #JustKeyThings~*~*
   def keys(key)
     split = key.split(//)
     split_after = split.map do |element|
@@ -29,7 +29,7 @@ class Enigma
     end
   end
 
-  #offsets
+  #JustOffsetThings~*~*
   def date_squared(date)
     (date.to_i ** 2)
   end
@@ -65,7 +65,7 @@ class Enigma
     @shifts = [a_shift, b_shift, c_shift, d_shift]
   end
 
-  #enigma helper methods
+  #JustEnigmaHelperMethods~*~*
   def find_shift(index)
     if index % 4 == 0
       @shifts[0]
@@ -95,11 +95,12 @@ class Enigma
 
   def change_elements(front_element, shift)
     #change the biz
-    the_biz = @character_set.index(front_element)
+    found_element = @character_set.index(front_element)
     rotated_array = @character_set.rotate(shift)
-    rotated_array[the_biz]
+    rotated_array[found_element]
   end
 
+  #::enigma #decrypt~*~*
   def decrypt(message, key = @key, date = @date)
     shifts(key, date)
     decrypt_hash = {decryption: message, key: key, date: date}
@@ -107,7 +108,6 @@ class Enigma
     array = message.chars
     array.each_with_index do |element, index|
       shift = find_shift(index)
-      # require "pry"; binding.pry
       new_character = change_elements(element, -shift)
       decrypted_message.push(new_character)
     end
