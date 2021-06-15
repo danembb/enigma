@@ -25,20 +25,18 @@ class Enigma
   end
 
   def encrypt(message, key = @key, date = shift.return_date)
-    hash = Hash.new
-    hash[:encryption] = message
-    hash[:key] = key
-    hash[:date] = date
-    @offsets = shift.offsets
-    @keys = shift.keys
     array = message.chars
-    array.each_with_index do |element, index|
+    encrypted_message = array.each_with_index do |element, index|
       shift = find_shift(index)
+      require "pry"; binding.pry
       change_elements(element, shift)
-    end
+    end.join
+    encrypt_hash = {encryption: encrypted_message, key: key, date: date}
   end
 
   def change_elements(front_element, shift)
-
+    the_biz = @character_set.index(front_element)
+    rotated_array = @character_set.rotate(shift)
+    rotated_array[the_biz]
   end
 end
