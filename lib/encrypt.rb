@@ -6,4 +6,4 @@ message = Message.new
 #sequence. After, it will show them the sequence (either way), then encode it.
 # puts message.welcome
 # puts message.welcome_query
-#encryption_flow(gets.chomp)
+# encryption_flow()
