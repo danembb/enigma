@@ -39,5 +39,6 @@ class Enigma
   end
 
   def change_elements(front_element, shift)
+
   end
 end
