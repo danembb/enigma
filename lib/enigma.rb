@@ -78,6 +78,7 @@ class Enigma
     end
   end
 
+  #enigma #encrypt
   def encrypt(message, key = @key, date = @date)
     shifts(key, date)
     encrypt_hash = {encryption: message, key: key, date: date}
@@ -93,8 +94,23 @@ class Enigma
   end
 
   def change_elements(front_element, shift)
+    #change the biz
     the_biz = @character_set.index(front_element)
     rotated_array = @character_set.rotate(shift)
     rotated_array[the_biz]
+  end
+
+  def decrypt(message, key = @key, date = @date)
+    shifts(key, date)
+    decrypt_hash = {decryption: message, key: key, date: date}
+    decrypted_message = []
+    array = message.chars
+    array.each_with_index do |element, index|
+      shift = find_shift(index)
+      new_character = change_elements(element, shift)
+      decrypted_message.push(new_character)
+    end
+    decrypt_hash[:decryption] = decrypted_message.join
+    decrypt_hash
   end
 end
