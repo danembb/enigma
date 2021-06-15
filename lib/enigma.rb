@@ -94,8 +94,7 @@ class Enigma
   end
 
   def change_elements(front_element, shift)
-    #change the biz
-    found_element = @character_set.index(front_element)
+    found_element = @character_set.index(front_element).to_i
     rotated_array = @character_set.rotate(shift)
     rotated_array[found_element]
   end
