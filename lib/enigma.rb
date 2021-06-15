@@ -8,7 +8,7 @@ class Enigma
   def initialize
     @shift = Shift.new
     @character_set = ("a".."z").to_a << " "
-    @key = shift.keys
+    @key = shift.generate_key
     @date = shift.return_date
   end
 
@@ -24,14 +24,17 @@ class Enigma
     end
   end
 
-  def encrypt(message, key = @key, date = shift.return_date)
+  def encrypt(message, key = @key, date = @date)
+    encrypt_hash = {encryption: message, key: key, date: date}
+    encrypted_message = []
     array = message.chars
-    encrypted_message = array.each_with_index do |element, index|
+    array.each_with_index do |element, index|
       shift = find_shift(index)
-      require "pry"; binding.pry
-      change_elements(element, shift)
-    end.join
-    encrypt_hash = {encryption: encrypted_message, key: key, date: date}
+      new_character = change_elements(element, shift)
+      encrypted_message.push(new_character)
+    end
+    encrypt_hash[:encryption] = encrypted_message.join
+    encrypt_hash
   end
 
   def change_elements(front_element, shift)

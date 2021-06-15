@@ -12,7 +12,7 @@ RSpec.describe Enigma do
       enigma = Enigma.new
 
       expect(enigma.character_set).to be_an(Array)
-      expect(enigma.key).to be_an(Array)
+      expect(enigma.key).to be_an(String)
       expect(enigma.date).to eq(Date.today.strftime("%d%m%y"))
     end
   end
@@ -27,7 +27,6 @@ RSpec.describe Enigma do
 
     it "#encrypt will return a hash with three keys" do
       enigma = Enigma.new
-
       expected = {
                   encryption: "keder ohulw",
                   key: "02715",
@@ -35,6 +34,8 @@ RSpec.describe Enigma do
                  }
 
       expect(enigma.encrypt("hello world", "02715", "040895")).to eq(expected)
+      # expect(expected[:key]).to eq("02715")
+      # expect(enigma.date).to eq("040895")
     end
   end
 end

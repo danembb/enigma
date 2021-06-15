@@ -4,7 +4,7 @@ RSpec.describe Shift do
   before :each do
     @shift = Shift.new
   end
-  
+
   describe "instantiation" do
     it "::new" do
       expect(@shift).to be_a(Shift)
