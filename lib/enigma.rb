@@ -107,7 +107,8 @@ class Enigma
     array = message.chars
     array.each_with_index do |element, index|
       shift = find_shift(index)
-      new_character = change_elements(element, shift)
+      # require "pry"; binding.pry
+      new_character = change_elements(element, -shift)
       decrypted_message.push(new_character)
     end
     decrypt_hash[:decryption] = decrypted_message.join

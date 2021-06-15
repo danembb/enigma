@@ -34,6 +34,7 @@ RSpec.describe Enigma do
                  }
 
       expect(enigma.encrypt("hello world", "02715", "040895")).to eq(expected)
+      expect(enigma.decrypt("keder ohulw", "02715", "040895")).to be_a(Hash)
 
     end
 
@@ -46,7 +47,7 @@ RSpec.describe Enigma do
     it "#encrypt & #decrypt will return a hash with three keys without a date/key given" do
       enigma = Enigma.new
       encrypted = enigma.encrypt("hello world")
-      decrypted = enigma.decrypt(encrypted[:encryption], encrypted[:key], encrypted[:date]
+      decrypted = enigma.decrypt(encrypted[:encryption], encrypted[:key], encrypted[:date])
 
       expect(encrypted).to be_a(Hash)
       expect(decrypted).to be_a(Hash)
