@@ -2,17 +2,14 @@
 Turing 2105 class final project
 
 ## process:
-* Create a program that will first, ask a user if they would like to enter in code to be encrypted.
+* Create a program that encrypt text provided by the user. The user may provide a key and/or a date to encrypt with. If no key and/or date are given, generate them randomly.
 
-  - If yes, it will take the 5 digit number and encrypt it using a custom caesar cipher
-  - If no, it will generate a random 5 digit number, show it, then encrypt it.
-
-  - After, it will ask if the user wants it to decrypt their code. if y/Y it will run a decrypt process, if n/N, it will close the program.
+https://docs.google.com/document/d/1dwJ3WBlKzCubk1CFuZxR0cL6aFKUg7cxss9HpNQLigw/edit?usp=sharing
 
 
 ## self_evaluation:
 
-#functionality: 
+#functionality:
 Between meets expectations and below expectations. Though the encrypt and decrypt do work, they do not work completely successfully.
 
 #object-oriented-programming:
