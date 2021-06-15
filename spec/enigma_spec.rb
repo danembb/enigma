@@ -55,8 +55,9 @@ RSpec.describe Enigma do
       return_date = 130621
 
       expect(@enigma.shifts("02715", 130621)).to be_an(Array)
+      expect(@enigma.shifts("02715", 130621).length).to eq(4)
     end
-    
+
     # it "#find_shift(index) can identify indexes and apply correct shift" do
     #
     #
